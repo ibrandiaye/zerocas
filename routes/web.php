@@ -15,21 +15,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
-Route::resource('/region', 'RegionController');
-Route::resource('/departement', 'DepartementController');
+})->middleware('auth');
+Route::resource('/region', 'RegionController')->middleware('auth');
+Route::resource('/departement', 'DepartementController')->middleware('auth');
 Route::resource('/commune', 'CommuneController');
-Route::resource('/questionnaire', 'QuestionnaireController');
-Route::resource('/article', 'ArticleController');
-Route::resource('/user', 'UserController');
+Route::resource('/questionnaire', 'QuestionnaireController')->middleware('auth');
+Route::resource('/article', 'ArticleController')->middleware('auth');
+Route::resource('/user', 'UserController')->middleware('auth');
 Route::post('/region/{id}', 'RegionController@update'
-)->name('modifier.region');
+)->name('modifier.region')->middleware('auth');
 Route::post('/departement/{id}', 'DepartementController@update'
-)->name('modifier.departement');
+)->name('modifier.departement')->middleware('auth');
 Route::post('/commune/{id}', 'CommuneController@update'
-)->name('modifier.commune');
+)->name('modifier.commune')->middleware('auth');
 Route::post('/user/{id}', 'UserController@update'
-)->name('modifier.user');
+)->name('modifier.user')->middleware('auth');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
