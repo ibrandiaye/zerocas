@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\QuestionnaireRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionnaireController extends Controller
 {
@@ -86,6 +87,22 @@ class QuestionnaireController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return response()->json('ok');
+        }else{
+            return response()->json('ko');
+        }
+    }
+
+    public function storeQuestionnaire(Request $request){
+        $questionnaire = $this->questionnaireRepository->store($request->all());
+        return response()->json($questionnaire);
     }
 
 }

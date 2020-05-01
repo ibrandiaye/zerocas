@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\CommuneRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -121,5 +122,16 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function seConnecter(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return response()->json('ok');
+        }else{
+            return response()->json('ko');
+        }
     }
 }

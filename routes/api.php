@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('/questionnaire/save',[
+    'as' => 'questionnaire.save',
+    'uses' => 'QuestionnaireController@storeQuestionnaire',
+]);
+Route::post('/connexion',[
+    'as' => 'connexion.user',
+    'uses' => 'UserController@seConnecter',
+]);
