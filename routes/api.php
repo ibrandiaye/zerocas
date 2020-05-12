@@ -22,8 +22,35 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/questionnaire/save',[
     'as' => 'questionnaire.save',
     'uses' => 'QuestionnaireController@storeQuestionnaire',
+    'middleware' =>'cors'
 ]);
 Route::post('/connexion',[
     'as' => 'connexion.user',
     'uses' => 'UserController@seConnecter',
+    'middleware' =>'cors'
+]);
+Route::get('/articles/all',[
+    'as' => 'article.list',
+    'uses' => 'ArticleController@getAllAticle',
+    'middleware' =>'cors'
+]);
+Route::post('/cas-suspect/save',[
+    'as' => 'cassuspect.save',
+    'uses' => 'CasSuspectController@store',
+    'middleware' =>'cors'
+]);
+Route::post('/action-iec/save',[
+    'as' => 'actioniec.save',
+    'uses' => 'ActionIecController@store',
+    'middleware' =>'cors'
+]);
+Route::post('/lieu-haut-risque/save',[
+    'as' => 'lieuhautrisque.save',
+    'uses' => 'LieuHautRisqueController@store',
+    'middleware' =>'cors'
+]);
+Route::post('/logistique/save',[
+    'as' => 'cassuspect.save',
+    'uses' => 'LogistiqueController@store',
+    'middleware' =>'cors'
 ]);

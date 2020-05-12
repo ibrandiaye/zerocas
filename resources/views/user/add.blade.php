@@ -49,6 +49,18 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-4 mb-10">
+                                        <label for="validationTooltipUsername">Téléphone</label>
+                                        <input type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" id="validationTooltipUsername" placeholder="Téléphone" aria-describedby="validationTooltipUsernamePrepend" required>
+                                        <div class="invalid-tooltip">
+                                            Champ obligatoire ou email invalide
+                                        </div>
+                                        @error('telephone')
+                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-4 mb-10">
                                         <label for="validationCustom01">ASC</label>
                                         <input type="text" class="form-control" name="asc" placeholder="Nom ASC"  >
                                     </div>

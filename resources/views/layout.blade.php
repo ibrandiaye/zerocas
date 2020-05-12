@@ -283,6 +283,25 @@ License: You must have a valid license purchased only from templatemonster to le
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#article">
+                            <span class="feather-icon"><i data-feather="activity"></i></span>
+                            <span class="nav-link-text">Article</span>
+                        </a>
+                        <ul id="article" class="nav flex-column collapse collapse-level-1">
+                            <li class="nav-item">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{{route('article.create')}}">Ajouter</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('article.index')}}">Liste</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -53,7 +53,8 @@ class UserController extends Controller
             'name' => 'required|max:120',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
-           'role'=> 'required'
+           'role'=> 'required',
+            'telephone'=> 'required'
         ]);
         $user = $this->userRepository->store($request->all());
         return redirect('user');
@@ -125,13 +126,13 @@ class UserController extends Controller
     }
     public function seConnecter(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('telephone', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return response()->json('ok');
+            $user = $this->userRepository->getUserByEmail($request->only('telephone'));
+            return response()->json($user->id);
         }else{
-            return response()->json('ko');
+            return response()->json(0);
         }
     }
 }

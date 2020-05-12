@@ -10,10 +10,17 @@ namespace App\Repositories;
 
 
 use App\Article;
+use Illuminate\Support\Facades\DB;
 
-class ArticleController extends RessourceRepository{
+class ArticleRepository extends RessourceRepository{
 
     public function __construct(Article $article){
         $this->model = $article;
     }
+    public function getArticles(){
+        return DB::table('articles')
+            ->orderBy('id','desc')
+            ->get();
+    }
+
 }

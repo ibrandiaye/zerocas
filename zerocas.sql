@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 02 mai 2020 à 01:56
+-- Généré le :  Dim 03 mai 2020 à 03:26
 -- Version du serveur :  10.4.8-MariaDB
 -- Version de PHP :  7.3.11
 
@@ -37,6 +37,14 @@ CREATE TABLE `articles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `articles`
+--
+
+INSERT INTO `articles` (`id`, `titre`, `desciption`, `image`, `video`, `created_at`, `updated_at`) VALUES
+(1, 'ZKFNZ', '<p>DBHD B QDBQ DQ</p>', '1588464726.jpg', NULL, '2020-05-02 19:20:45', '2020-05-03 00:12:06'),
+(2, 'Z54FGYHI', '<p>IFNgvhg&nbsp; &nbsp; &nbsp; IHIKNKNKK H H H&nbsp; K KHBBK KLK</p>\r\n<p>&nbsp;</p>', '1588464239.jpg', NULL, '2020-05-02 20:16:59', '2020-05-03 00:03:59');
 
 -- --------------------------------------------------------
 
@@ -176,7 +184,8 @@ CREATE TABLE `regions` (
 --
 
 INSERT INTO `regions` (`id`, `nom`, `created_at`, `updated_at`) VALUES
-(1, 'Dakar', '2020-04-28 16:03:37', '2020-04-28 23:14:00');
+(1, 'Dakar', '2020-04-28 16:03:37', '2020-04-28 23:14:00'),
+(2, 'Thies', '2020-05-03 00:45:26', '2020-05-03 00:45:26');
 
 -- --------------------------------------------------------
 
@@ -277,7 +286,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `communes`
@@ -313,7 +322,7 @@ ALTER TABLE `questionnaires`
 -- AUTO_INCREMENT pour la table `regions`
 --
 ALTER TABLE `regions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `users`

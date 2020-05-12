@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class UserRepository extends RessourceRepository{
     public function __construct(User $user){
@@ -18,5 +19,10 @@ class UserRepository extends RessourceRepository{
     public function getUsers(){
         return User::with(['commune'])
             ->get();
+    }
+    public function getUserByEmail($telephone){
+        return DB::table('users')
+            ->where('telephone',$telephone)
+            ->first();
     }
 }

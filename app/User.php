@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','commune_id','asc','role'
+        'name', 'email', 'password','commune_id','asc','role','telephone'
     ];
 
     /**
@@ -44,4 +44,13 @@ class User extends Authenticatable
     public function commune(){
         return $this->belongsTo(Commune::class);
     }
+    public function actionIecs(){
+        return $this->hasMany(ActionIec::class);
+    }
+    public function casSuspects(){
+        return$this->hasMany(CasSupect::class);
+    }
+    public function lieuHautRisques(){
+    return $this->hasMany(LieuHautRisque::class);
+}
 }

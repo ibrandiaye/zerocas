@@ -71,9 +71,10 @@ License: You must have a valid license purchased only from templatemonster to le
                                 <h1 class="display-4 mb-10">Welcome Back :)</h1>
                                 <p class="mb-30">Sign in to your account and enjoy unlimited perks.</p>
                                 <div class="form-group">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <input id="email" type="text" class="form-control{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}"
+                                           name="login" value="{{ old('username') ?: old('email') }}" required autocomplete="telephone" autofocus>
 
-                                    @error('email')
+                                    @error('login')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
