@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
+Route::get('/', 'HomeController@index')->middleware('auth');
 Route::resource('/region', 'RegionController')->middleware('auth');
 Route::resource('/departement', 'DepartementController')->middleware('auth');
 Route::resource('/commune', 'CommuneController');
@@ -34,5 +32,8 @@ Route::post('/user/{id}', 'UserController@update'
 Route::get('/article/{id}/destroy', 'ArticleController@destroy'
 )->name('article.article')->middleware('auth');
 Auth::routes();
-
+Route::get('/get/asc/commune/{commune}', 'HomeController@getAscByCommune'
+)->name('asc.commune'); //->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::post('/recherche', 'HomeController@rechercher'
+)->name('rechercher.dashboard')->middleware('auth');

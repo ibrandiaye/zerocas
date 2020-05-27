@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\Commune;
+use Illuminate\Support\Facades\DB;
 
 class CommuneRepository extends  RessourceRepository{
     public  function __construct(Commune $commune){
@@ -17,6 +18,12 @@ class CommuneRepository extends  RessourceRepository{
     }
     public function getCommunes(){
         return Commune::with(['departement','departement.region'])
+            ->get();
+    }
+    public function getAscByCommune($id){
+        return DB::table('users')
+            ->where([['commune_id',$id],['asc','!=','']])
+            ->distinct('asc')
             ->get();
     }
 }

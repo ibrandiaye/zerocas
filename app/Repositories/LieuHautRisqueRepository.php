@@ -10,9 +10,19 @@ namespace App\Repositories;
 
 
 use App\LieuHautRisque;
+use Illuminate\Support\Facades\DB;
 
 class LieuHautRisqueRepository extends  RessourceRepository{
     public function __construct(LieuHautRisque $lieuHautRisque){
         $this->model = $lieuHautRisque;
+    }
+    public function getLieuHautRisqueByAsc($asc,$debut,$fin){
+        return DB::table('lieu_haut_risques')
+            ->join('users','lieu_haut_risques.user_id','=','users.id')
+            ->where('users.asc',$asc)
+            ->whereBetween('lieu_haut_risques.created_at',[$debut,$fin])
+            ->select('lieu_haut_risques.*','users.*')
+            ->get();
+
     }
 }

@@ -54,3 +54,8 @@ Route::post('/logistique/save',[
     'uses' => 'LogistiqueController@store',
     'middleware' =>'cors'
 ]);
+Route::post('/alerte/save',[
+    'as' => 'alerte.save',
+    'uses' => 'ArticleController@store',
+    'middleware' =>'cors'
+]);
