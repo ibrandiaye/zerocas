@@ -1,13 +1,16 @@
 /*DataTable Init*/
 
-"use strict"; 
-
+"use strict";
+/*"language": {
+    "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+}*/
 $(document).ready(function() {
 	$('#datable_1').DataTable({
 		responsive: true,
 		autoWidth: false,
 		language: { search: "",
-		searchPlaceholder: "Search",
+        "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/French.json",
+		searchPlaceholder: "Rechercher",
 		sLengthMenu: "_MENU_items"
 
 		}

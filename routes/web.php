@@ -21,6 +21,7 @@ Route::resource('/questionnaire', 'QuestionnaireController')->middleware('auth')
 Route::resource('/article', 'ArticleController')->middleware('auth');
 Route::resource('/user', 'UserController')->middleware('auth');
 Route::resource('/article', 'ArticleController')->middleware('auth');
+Route::resource('/alerte', 'AlerteController')->middleware('auth');
 Route::post('/region/{id}', 'RegionController@update'
 )->name('modifier.region')->middleware('auth');
 Route::post('/departement/{id}', 'DepartementController@update'

@@ -16,13 +16,29 @@ class ActionIecRepository extends RessourceRepository{
     public function __construct(ActionIec $actionIec){
         $this->model = $actionIec;
     }
-    public function getActionIecByAsc($asc,$debut,$fin){
-        return DB::table('action_iecs')
-            ->join('users','action_iecs.user_id','=','users.id')
-            ->where('users.asc',$asc)
-            ->whereBetween('action_iecs.created_at',[$debut,$fin])
-            ->select('action_iecs.*','users.*')
-            ->get();
+    public function getActionIecByAsc($asc,$debut,$fin,$commune_id){
+        if($asc){
+            return DB::table('action_iecs')
+                ->join('users','action_iecs.user_id','=','users.id')
+                ->where('users.asc',$asc)
+                ->whereBetween('action_iecs.created_at',[$debut,$fin])
+                ->select('action_iecs.*','users.*')
+                ->get();
+        }elseif (!$asc and $commune_id){
+            return DB::table('action_iecs')
+                ->join('users','action_iecs.user_id','=','users.id')
+                ->where('users.commune_id',$commune_id)
+                ->whereBetween('action_iecs.created_at',[$debut,$fin])
+                ->select('action_iecs.*','users.*')
+                ->get();
+        }else{
+            return DB::table('action_iecs')
+                ->join('users','action_iecs.user_id','=','users.id')
+                ->whereBetween('action_iecs.created_at',[$debut,$fin])
+                ->select('action_iecs.*','users.*')
+                ->get();
+        }
+
 
     }
 }

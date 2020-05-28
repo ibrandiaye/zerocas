@@ -55,14 +55,14 @@
                                         <option value="">Sélectionner</option>
                                         <option value="casSuspect">Cas Suspect</option>
                                         <option value="actionIec">Action IEC</option>
-                                        <option value="alerte">Alerte</option>
+                                       <!--  <option value="alerte">Alerte</option>-->
                                         <option value="risque">Lieu à haut Risque</option>
                                         <option value="logistique">Logistique</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4 mb-10">
                                     <label for="validationCustom01">Commune</label>
-                                    <select class="commune form-control custom-select" name="commune_id" id="commune" required>
+                                    <select class="commune form-control custom-select" name="commune_id" id="commune" >
                                         <option value="">Sélectionner</option>
                                         @foreach($communes as $commune)
                                             <option value="{{  $commune->id }}">{{  $commune->nom }}</option>
@@ -72,13 +72,13 @@
                                 </div>
                                 <div class="col-md-4 mb-10">
                                     <label for="validationCustom01">ASC</label>
-                                    <select class="form-control custom-select" name="asc" id="bodyData" required>
+                                    <select class="form-control custom-select" name="asc" id="bodyData">
 
 
                                     </select>
                                 </div>
                             </div>
-                            <button class="btn btn-primary" type="submit">Enregistrer</button>
+                            <button class="btn btn-primary" type="submit">Rechercher</button>
                         </form>
                     </div>
                     @if($actions)

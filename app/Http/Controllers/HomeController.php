@@ -56,7 +56,6 @@ class HomeController extends Controller
         request()->validate([
             'debut' => 'required',
             'fin' => 'required',
-            'asc' => 'required',
             'categorie' => 'required'
 
         ]);
@@ -71,22 +70,22 @@ class HomeController extends Controller
         }
         $communes = $this->communeRepository->getAll();
         if($request['categorie']=='casSuspect'){
-            $suspects = $this->casSuspectRepository->getCasdeSupectByAsc($request['asc'],$request['debut'],$request['fin']);
+            $suspects = $this->casSuspectRepository->getCasdeSupectByAsc($request['asc'],$request['debut'],$request['fin'],$request['commune_id']);
 
             return view('welcome',compact('communes','actions','suspects','logistiques','alertes','risques'));
         }elseif($request['categorie']=='actionIec'){
-            $actions = $this->actionIecRepository->getActionIecByAsc($request['asc'],$request['debut'],$request['fin']);
+            $actions = $this->actionIecRepository->getActionIecByAsc($request['asc'],$request['debut'],$request['fin'],$request['commune_id']);
             return view('welcome',compact('communes','actions','suspects','logistiques','alertes','risques'));
         }elseif($request['categorie']=='alerte'){
-            $alertes = $this->alerteRepository->getAlerteByAsc($request['asc'],$request['debut'],$request['fin']);
+            $alertes = $this->alerteRepository->getAlerteByAsc($request['asc'],$request['debut'],$request['fin'],$request['commune_id']);
             return view('welcome',compact('communes','actions','suspects','logistiques','alertes','risques'));
 
         }elseif($request['categorie']=='risque'){
-            $risques = $this->lieuHautRisqueRepository->getLieuHautRisqueByAsc($request['asc'],$request['debut'],$request['fin']);
+            $risques = $this->lieuHautRisqueRepository->getLieuHautRisqueByAsc($request['asc'],$request['debut'],$request['fin'],$request['commune_id']);
             return view('welcome',compact('communes','actions','suspects','logistiques','alertes','risques'));
 
         }else{
-            $logistiques = $this->logistiqueRepository->getLogistiqueByAsc($request['asc'],$request['debut'],$request['fin']);
+            $logistiques = $this->logistiqueRepository->getLogistiqueByAsc($request['asc'],$request['debut'],$request['fin'],$request['commune_id']);
             return view('welcome',compact('communes','actions','suspects','logistiques','alertes','risques'));
         }
 

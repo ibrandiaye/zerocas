@@ -302,6 +302,12 @@ License: You must have a valid license purchased only from templatemonster to le
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('alerte.index')}}">
+                            <span class="feather-icon"><i data-feather="activity"></i></span>
+                            <span class="nav-link-text">Alerte</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -421,6 +427,7 @@ License: You must have a valid license purchased only from templatemonster to le
 
 <!-- Init JavaScript -->
 <script src="{{ asset('dist/js/init.js') }}"></script>
+
 @yield('script')
 
 

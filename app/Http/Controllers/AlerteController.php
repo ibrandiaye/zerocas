@@ -19,7 +19,8 @@ class AlerteController extends Controller
      */
     public function index()
     {
-        //
+        $alertes= $this->alerteRepository->getAll();
+        return view('alerte.index',compact('alertes'));
     }
 
     /**
